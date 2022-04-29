@@ -8,7 +8,7 @@ import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import auth from "./routes/auth.js";
 import upload from "./routes/upload.js";
 
-const DEV = true;
+const DEV = false;
 const PORT = DEV ? 80 : 443;
 const SECRET_MANAGER_CERT =
   "projects/727633334874/secrets/PublicKey/versions/latest";
