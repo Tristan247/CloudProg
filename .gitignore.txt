@@ -1,0 +1,6 @@
+/frontend/node_modules
+/cloudfunction/node_modules
+/cloudfunction/key.json
+/backend/node_modules
+/backend/key.json
+.DS_Store
