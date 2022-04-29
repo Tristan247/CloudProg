@@ -3,7 +3,7 @@ import { createHmac } from "crypto";
 
 //Instantiating Firestore with project details
 const db = new Firestore({
-  projectId: "pftc0000001",
+  projectId: "cloud1-340711",
   keyFilename: "./key.json",
 });
 

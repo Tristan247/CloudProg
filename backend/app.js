@@ -11,17 +11,17 @@ import upload from "./routes/upload.js";
 const DEV = true;
 const PORT = DEV ? 80 : 443;
 const SECRET_MANAGER_CERT =
-  "projects/578170717869/secrets/PublicKey/versions/latest";
+  "projects/727633334874/secrets/PublicKey/versions/latest";
 const SECRET_MANAGER_PK =
-  "projects/578170717869/secrets/PrivateKey/versions/latest";
+  "projects/727633334874/secrets/PrivateKey/versions/latest";
 const SECRET_MANAGER_GET_OUT_PDF =
-  "projects/578170717869/secrets/GetOutPDF/versions/latest";
+  "projects/727633334874/secrets/GetOutPDF/versions/latest";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const sm = new SecretManagerServiceClient({
-  projectId: "pftc0000001",
+  projectId: "cloud1-340711",
   keyFilename: "./key.json",
 });
 
