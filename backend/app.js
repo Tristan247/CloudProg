@@ -7,6 +7,7 @@ import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 import auth from "./routes/auth.js";
 import upload from "./routes/upload.js";
+import clean from "./routes/clean.js";
 
 const DEV = false;
 const PORT = DEV ? 80 : 443;
@@ -74,6 +75,8 @@ app.use("/auth", auth);
 
 //route upload traffic to upload.js
 app.use("/upload", upload);
+
+app.use("/clean", clean);
 
 //Delivering index.html;
 app.get("/", (req, res) => {
