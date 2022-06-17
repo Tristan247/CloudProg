@@ -39,3 +39,7 @@ export async function IncrementCount(id){
       count: parseInt(doc.data().count) + 1,
   });
 }
+
+export async function AddLink(link) {
+  return await AddDocument("links", {link: link});
+}

@@ -6,6 +6,7 @@ import path, { dirname } from "path";
 import { Storage } from "@google-cloud/storage";
 import fs from 'fs';
 import axios from "axios";
+import { AddLink } from "../db";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -60,12 +61,13 @@ upload.route("/").post(docUpload.single("document"), async function(req, res) {
          const newfile = new Buffer.from(response_64.data.pdf_base64, 'base64');
          console.log(newfile);
 
-         const NewName = req.file.originalname.replace(path.extname(req.file.originalname),".pdf");
-         var FinalLink = "";
-        await storage.bucket(bucketname).file(`uploads/${NewName}`).save(newfile);
-        FinalLink =
+         const FileName = req.file.originalname.replace(path.extname(req.file.originalname),".pdf");
+         var LinkName = "";
+        await storage.bucket(bucketname).file(`uploads/${FileName}`).save(newfile);
+        LinkName =
         "https://storage.googleapis.com/cloud1-340711.appspot.com/uploads/" +
-        NewName;
+        FileName;
+        AddLink(LinkName);
     res.send({
       status: "200",
       message: "File uploaded successfully! Processing..",
