@@ -37,7 +37,7 @@ let imageUpload = multer({
   },
 });
 
-upload.route("/").post(imageUpload.single("image"), (req, res) => {
+upload.route("/").post(imageUpload.single("image"), async function(req, res) {
   if (req.file) {
     console.log("File downloaded at: " + req.file.path);
     //Upload to google cloud
