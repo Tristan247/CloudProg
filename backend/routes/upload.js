@@ -3,7 +3,7 @@ import multer from "multer";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 //import { receiveMessageOnPort } from "worker_threads";
-const { Storage } = require("@google-cloud/storage");
+import { Storage } from ("@google-cloud/storage");
 import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
