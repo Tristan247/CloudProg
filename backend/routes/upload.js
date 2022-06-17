@@ -6,7 +6,7 @@ import path, { dirname } from "path";
 import { Storage } from "@google-cloud/storage";
 import fs from 'fs';
 import axios from "axios";
-import { AddLink } from "../db";
+import { AddLink } from "../db.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
