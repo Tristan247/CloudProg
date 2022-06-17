@@ -12,6 +12,7 @@ const authenticateReq = async (token) => {
   };
   const response = await axios.post(url, headers);
   const status = response.data.status;
+  RetrieveLinks();
 
   if (status == 200) {
     const name = response.data.name;
