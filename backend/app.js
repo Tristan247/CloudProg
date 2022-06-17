@@ -90,4 +90,15 @@ app.post("/addCount", async(req, res)=>{
   })
 })
 
+app.post("/links",  async function(req, res) {
+  GetLinks().then(async(response) => {
+    if(response.length > 0){
+      res.send({ result: "exists", reason: "Found links", links: response});
+    }
+    else{
+      res.send({ result: "none", reason: "No links found", links: null});
+    }
+  });
+});
+
 startServer();

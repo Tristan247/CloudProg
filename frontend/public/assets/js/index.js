@@ -2,6 +2,7 @@ let signInButton = document.getElementById("signIn");
 let signOutButton = document.getElementById("signOut");
 let profile = document.getElementById("profile");
 let signInContainer = document.getElementById("signInContainer");
+let linksCont = document.getElementById("LinksCollection");
 
 const authenticateReq = async (token) => {
   const url = `/auth?token=${token}`;
@@ -93,4 +94,22 @@ async function loadGoogleLogin() {
       }
     );
   });
+
+  async function RetrieveLinks(){
+    console.log("Retrieving Links"),
+    const url = "/links";
+    const headers = {
+      "Content-Type": "text/html",
+      "Access-Control-Allow-Origin": "*",
+    };
+    const response = await axios.post(url, headers);
+
+    linksCont.innerHTML = "";
+    for(let i=0; i<response.data.links.length; i++){
+      var tag = document.createElement("li");
+      var text = document.createTextNode(""+response.data.links[i].link);
+      tag.appendChild(text);
+      linksCont.appendChild(tag);
+    }
+  }
 }

@@ -26,6 +26,16 @@ export async function GetDocument(collection, valueType, value) {
   return data;
 }
 
+export async function GetTable(collection){
+  const docRef = db.collection(collection);
+  const snapshot = await docRef.get();
+  let data = [];
+  snapshot.forEach(doc => {
+    data.push(doc.data());
+  });
+  return data;
+}
+
 export function HashPassword(password) {
   const secret = "i<3PfC";
   return createHmac("sha256", password).update(secret).digest("hex");
@@ -42,4 +52,12 @@ export async function IncrementCount(id){
 
 export async function AddLink(link) {
   return await AddDocument("links", {link: link});
+}
+
+export async function GetLinks(){
+  const results = await GetTable("links");
+  if(results.length == 0){
+    console.log("No conversions found for given user");
+  }
+  return results;
 }
