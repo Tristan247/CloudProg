@@ -19,7 +19,7 @@ const storage = new Storage({
 
 const bucketname = "cloud1-340711.appspot.com";
 
-let imageUpload = multer({
+let docUpload = multer({
   storage: multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.join(__dirname, "../uploads/"));
@@ -40,7 +40,7 @@ let imageUpload = multer({
   },
 });
 
-upload.route("/").post(imageUpload.single("image"), async function(req, res) {
+upload.route("/").post(docUpload.single("document"), async function(req, res) {
   if (req.file) {
     console.log("File downloaded at: " + req.file.path);
     //Upload to google cloud
