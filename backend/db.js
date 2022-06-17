@@ -35,7 +35,7 @@ export async function IncrementCount(id){
   const docRef = db.collection("categories").doc(id)
   const doc = await docRef.get();
 
-  return await doc.update({
+  return await docRef.update({
       count: parseInt(doc.data().count) + 1,
   });
 }
