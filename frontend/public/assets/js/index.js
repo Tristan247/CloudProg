@@ -97,7 +97,7 @@ async function loadGoogleLogin() {
   });
 
   async function RetrieveLinks(){
-    console.log("Retrieving Links"),
+    console.log("Retrieving Links");
     const url = "/links";
     const headers = {
       "Content-Type": "text/html",

@@ -10,6 +10,5 @@ const uploadFile = async () => {
     formData.append("document", fileUpload);
     const response = await axios.post(url, formData, headers);
     console.log(response);
-    RetrieveLinks();
   }
 };
