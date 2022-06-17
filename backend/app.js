@@ -4,6 +4,7 @@ import https from "https";
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { IncrementCount } from "./db.js"
 
 import auth from "./routes/auth.js";
 import upload from "./routes/upload.js";
@@ -82,5 +83,11 @@ app.use("/clean", clean);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
+
+app.post("/addCount", async(req, res)=>{
+  IncrementCount(req.query.id).then((result)=>{
+    res.send({});
+  })
+})
 
 startServer();

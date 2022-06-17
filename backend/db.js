@@ -29,3 +29,12 @@ export function HashPassword(password) {
   const secret = "i<3PfC";
   return createHmac("sha256", password).update(secret).digest("hex");
 }
+
+export async function IncrementCount(id){
+  const docRef = db.collection("categories").doc(id)
+  const doc = await docRef.get();
+
+  return await doc.set({
+      count: doc.data().count + 1,
+  });
+}

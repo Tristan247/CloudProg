@@ -61,7 +61,11 @@ upload.route("/").post(docUpload.single("document"), async function(req, res) {
          console.log(newfile);
 
          const NewName = req.file.originalname.replace(path.extname(req.file.originalname),".pdf");
+         var FinalLink = "";
         await storage.bucket(bucketname).file(`uploads/${NewName}`).save(newfile);
+        FinalLink =
+        "https://storage.googleapis.com/cloud1-340711.appspot.com/uploads/" +
+        NewName;
     res.send({
       status: "200",
       message: "File uploaded successfully! Processing..",

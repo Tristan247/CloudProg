@@ -39,6 +39,14 @@ const authenticateReq = async (token) => {
   }
 };
 
+let selectItem = document.getElementById("categories");
+async function selectClicked(){
+  console.log("Selected! " + selectItem.value);
+
+  const url = `/addCount?id=${selectItem.value}`;
+  const response = await axios.post(url);
+}
+
 async function loadGoogleLogin() {
   let session = document.cookie;
   if (session && session.includes("token")) {
