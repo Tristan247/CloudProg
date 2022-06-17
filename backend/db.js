@@ -1,4 +1,5 @@
 import Firestore from "@google-cloud/firestore";
+import { count } from "console";
 import { createHmac } from "crypto";
 
 //Instantiating Firestore with project details
@@ -34,7 +35,7 @@ export async function IncrementCount(id){
   const docRef = db.collection("categories").doc(id)
   const doc = await docRef.get();
 
-  return await doc.set({
-      count: doc.data().count + 1,
+  return await doc.update({
+      count: parseInt(doc.data().count) + 1,
   });
 }
