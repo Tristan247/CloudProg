@@ -50,7 +50,7 @@ upload.route("/").post(imageUpload.single("image"), async function(req, res) {
     //Convert to base64
     var base64file =  fs.readFileSync(req.file.path, 'base64');
     //Send to PDF Conversion API
-    const url = `https://getoutpdf.com/api/convert/image-to-pdf`;
+    const url = `https://getoutpdf.com/api/convert/document-to-pdf`;
       const headers = {
        //"Content-Type": "application/json",
         "api_key" :  "cd5f6fa01e69020f3b5cafc577d7b84ed947699f029ba6bf408d84b2d3bab127",
