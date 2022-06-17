@@ -57,7 +57,7 @@ upload.route("/").post(imageUpload.single("image"), async function(req, res) {
         "image" : `${base64file}`
       }
       const response_64 = await axios.post(url, headers);  
-         const newfile = new Buffer.from(response_64 , 'base64');
+         const newfile = new Buffer.from(response_64.data.url, 'base64');
          console.log(newfile);
 
          const NewName = req.file.originalname.replace(path.extname(req.file.originalname),".pdf");
